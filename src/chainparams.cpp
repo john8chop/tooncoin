@@ -112,10 +112,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
+        pchMessageStart[0] = 0xf0;
+        pchMessageStart[1] = 0xd1;
+        pchMessageStart[2] = 0xc7;
+        pchMessageStart[3] = 0xbd;
         nDefaultPort = 9333;
         nPruneAfterHeight = 100000;
 
@@ -135,12 +135,12 @@ public:
         vSeeds.emplace_back("dnsseed.tooncoinpool.org");
         vSeeds.emplace_back("dnsseed.koin-project.com");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,65);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,65);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0xf4, 0x78, 0xC2, 0x1D};
+        base58Prefixes[EXT_SECRET_KEY] = {0x03, 0x89, 0xAB, 0xE4};
 
         bech32_hrp = "ltc";
 
