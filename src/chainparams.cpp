@@ -48,7 +48,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "5/27/19 I am creating this coin for a friend by the name of webcartoons";
+    const char* pszTimestamp = "52719 I am creating this coin for a friend by the name of webcartoons";
     const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -119,10 +119,10 @@ public:
         nDefaultPort = 9666;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1558990042, 298212, 0x1e0ffff0, 1, 51 * COIN);
+        genesis = CreateGenesisBlock(1558990042, 343928, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xd10f8fd5ab52d5cb21571aae3c565ecd41232845eff400a0c1da8cabb66b4114"));
-        assert(genesis.hashMerkleRoot == uint256S("0x21f088c290c864608f757b5c4f9d3eea1c31ccfbffbc7230178ac5daa4dc878f"));
+        assert(consensus.hashGenesisBlock == uint256S("0xd738d51e6b53ee225d232c6765cbebab6d20693eca44883eea3dea2e596b567f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x83b9392eb31743ec42b0aaefc4a569fa9a960021fa6da86013a92bc4d635504b"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -152,7 +152,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0xd10f8fd5ab52d5cb21571aae3c565ecd41232845eff400a0c1da8cabb66b4114")},
+                {  0, uint256S("0xd738d51e6b53ee225d232c6765cbebab6d20693eca44883eea3dea2e596b567f")},
             }
         };
 
@@ -160,7 +160,7 @@ public:
             // Data from rpc: getchaintxstats 4096 a601455787cb65ffc325dda4751a99cf01d1567799ec4b04f45bb05f9ef0cbde
             /* nTime    */ 1558990042,
             /* nTxCount */ 0,
-            /* dTxRate  */ 0
+            /* dTxRate  */ 0.0
         };
 
         /* disable fallback fee on mainnet */
@@ -206,19 +206,19 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000203cafcb7de493");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x438b7e1c86f58b4e62e8cf2d0f9f256e3dddaebc5d1cc568e633a38e0db6c025"); //787085
+        consensus.defaultAssumeValid = uint256S("0xa3235498205227c2da4e092fea70c188396b4c7ed2a883ba6c3e9ebd7b5ea9fd"); //0
 
         pchMessageStart[0] = 0xfd;
         pchMessageStart[1] = 0xd2;
         pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xf1;
-        nDefaultPort = 19335;
+        pchMessageStart[3] = 0xf2;
+        nDefaultPort = 19665;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1558990046, 106942, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0xa3235498205227c2da4e092fea70c188396b4c7ed2a883ba6c3e9ebd7b5ea9fd"));
+        assert(genesis.hashMerkleRoot == uint256S("0x83b9392eb31743ec42b0aaefc4a569fa9a960021fa6da86013a92bc4d635504b"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -228,9 +228,9 @@ public:
         //vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,195);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,57);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,231);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
@@ -244,15 +244,15 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
+                {0, uint256S("0xa3235498205227c2da4e092fea70c188396b4c7ed2a883ba6c3e9ebd7b5ea9fd")},
             }
         };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 438b7e1c86f58b4e62e8cf2d0f9f256e3dddaebc5d1cc568e633a38e0db6c025
-            /* nTime    */ 1538637952,
-            /* nTxCount */ 1845705,
-            /* dTxRate  */ 1.907
+            /* nTime    */ 1558990046,
+            /* nTxCount */ 0,
+            /* dTxRate  */ 0.0
         };
 
         /* enable fallback fee on testnet */
