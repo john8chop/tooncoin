@@ -43,7 +43,7 @@ Build Tooncoin Core
 
 1. Clone the Tooncoin Core source code and cd into `tooncoin`
 
-        git clone https://github.com/tooncoin-project/tooncoin
+        git clone https://github.com/john8chop/tooncoin
         cd tooncoin
 
 2.  Build Tooncoin Core:
